@@ -7,6 +7,8 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
+import org.springframework.stereotype.Service;
+
 import com.azglxx.rst.rs.SuperRs;
 
 /**
@@ -17,6 +19,7 @@ import com.azglxx.rst.rs.SuperRs;
  * @version 1.0
  */
 @Path("/user")
+@Service
 public class UserRs extends SuperRs{
 
 	@Path("login")
