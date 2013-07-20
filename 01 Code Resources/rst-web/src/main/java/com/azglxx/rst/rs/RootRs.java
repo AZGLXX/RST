@@ -19,7 +19,7 @@ import com.sun.jersey.spi.resource.Singleton;
 @Singleton
 @Produces({ MediaType.APPLICATION_JSON })
 @Consumes({ MediaType.APPLICATION_JSON })
-public class RootResource extends SuperRS {
+public class RootRs extends SuperRs {
 
 	@Path("/hello")
 	@GET

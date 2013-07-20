@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class RootRsTest {
+public class RootRsTest extends RsTestTemplate{
 
 	@Test
 	public void test() {
