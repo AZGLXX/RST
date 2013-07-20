@@ -1,5 +1,7 @@
 package com.azglxx.rst.rs;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -7,11 +9,10 @@ import java.util.List;
 import javax.ws.rs.core.Cookie;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.NewCookie;
-import javax.ws.rs.core.Response.Status;
-
-import junit.framework.Assert;
 
 import org.junit.Before;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.azglxx.rst.rs.handler.GsonMessageBodyHandler;
 import com.sun.jersey.api.client.Client;
@@ -22,11 +23,14 @@ import com.sun.jersey.api.client.config.DefaultClientConfig;
 
 public class RsTestTemplate {
 
-	protected String URL = "http://127.0.0.1:8080/rstweb/rest/root";
-	ClientConfig clientConfig;
-	Client client;
-	WebResource resource;
-	Cookie cookies;
+	private static final Logger LOGGER = LoggerFactory.getLogger(RsTestTemplate.class);
+
+	protected String URL = "http://127.0.0.1:8080/rstweb";
+	protected String ROOT = "/rest/root";
+	protected ClientConfig clientConfig;
+	protected Client client;
+	protected WebResource resource;
+	protected Cookie cookies;
 
 	@Before
 	public void beforeTest() throws IOException {
@@ -41,12 +45,17 @@ public class RsTestTemplate {
 	}
 
 	protected List<NewCookie> login() {
-		HashMap<String,String> userInfo = new HashMap<String,String>();
+		HashMap<String, String> userInfo = new HashMap<String, String>();
 		userInfo.put("username", "SuperAdmin");
 		userInfo.put("password", "888888");
-		ClientResponse response = resource.path("/user/login").accept(MediaType.APPLICATION_JSON)
+		ClientResponse response = resource.path(ROOT + "/user/login").accept(MediaType.APPLICATION_JSON)
 				.type(MediaType.APPLICATION_JSON).post(ClientResponse.class, userInfo);
-		Assert.assertTrue("login success!", (response.getStatus() == Status.OK.getStatusCode()));
+		assertOk(response);
 		return response.getCookies();
+	}
+
+	protected void assertOk(ClientResponse cr) {
+		LOGGER.info("reponse status is " + cr.getStatus());
+		assertEquals("reponse status is not OK", 200, cr.getStatus());
 	}
 }
