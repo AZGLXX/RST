@@ -7,10 +7,14 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.azglxx.common.context.CurrentContext;
+import com.azglxx.common.context.UserInfo;
 import com.azglxx.rst.rs.SuperRs;
 import com.azglxx.rst.rs.constants.PathConst;
+import com.azglxx.rst.service.IRightsService;
 
 /**
  * user management resource
@@ -23,10 +27,21 @@ import com.azglxx.rst.rs.constants.PathConst;
 @Path(PathConst.RIGHTS_MGT + "/user")
 @Service
 public class UserRs extends SuperRs {
+	
+	@Autowired
+	IRightsService rightsService;
 
-	@Path("login")
+	@Path("/login")
 	@POST
-	public Response login() {
-		return ok(null);
+	public Response login(UserInfo user) {
+		CurrentContext.setCurrentUser(user);
+		return ok();
+	}
+
+	@Path("/logout")
+	@POST
+	public Response logout() {
+		CurrentContext.invalidSession();
+		return ok();
 	}
 }

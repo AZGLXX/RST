@@ -5,7 +5,9 @@ package com.azglxx.common.web.listener;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
+import javax.servlet.ServletRequestEvent;
 import javax.servlet.annotation.WebListener;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
@@ -13,6 +15,8 @@ import javax.servlet.http.HttpSessionListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.request.RequestContextListener;
+
+import com.azglxx.common.context.CurrentContext;
 
 /**
  * 
@@ -26,6 +30,18 @@ public class RequestAndSessionListener extends RequestContextListener implements
 	private final static Logger LOGGER = LoggerFactory.getLogger(RequestAndSessionListener.class);
 
 	private AtomicInteger count = new AtomicInteger(0);
+
+	@Override
+	public void requestInitialized(ServletRequestEvent requestEvent) {
+		super.requestInitialized(requestEvent);
+		CurrentContext.initialize((HttpServletRequest) requestEvent.getServletRequest());
+	}
+
+	@Override
+	public void requestDestroyed(ServletRequestEvent requestEvent) {
+		super.requestDestroyed(requestEvent);
+		CurrentContext.release();
+	}
 
 	@Override
 	public void sessionCreated(HttpSessionEvent sessionEvent) {

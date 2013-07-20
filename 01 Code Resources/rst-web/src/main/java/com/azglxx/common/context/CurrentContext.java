@@ -35,6 +35,7 @@ public class CurrentContext {
 
 	/**
 	 * 设置当前用户
+	 * 
 	 * @date 2013-7-20
 	 * @param user
 	 */
@@ -49,5 +50,9 @@ public class CurrentContext {
 
 	public static void release() {
 		requestThread.set(null);
+	}
+
+	public static void invalidSession() {
+		requestThread.get().getSession().invalidate();
 	}
 }
