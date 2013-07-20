@@ -24,10 +24,11 @@ import com.azglxx.rst.service.IRightsService;
  * @date 2013-7-20
  * @version 1.0
  */
-@Path(PathConst.RIGHTS_MGT + "/user")
+@Path(UserRs.PATH)
 @Service
 public class UserRs extends SuperRs {
-	
+	public static final String PATH = PathConst.RIGHTS_MGT + "/user";
+
 	@Autowired
 	IRightsService rightsService;
 

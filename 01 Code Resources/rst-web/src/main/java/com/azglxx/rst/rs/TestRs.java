@@ -15,8 +15,10 @@ import com.sun.jersey.spi.resource.Singleton;
 
 @Component
 @Singleton
-@Path("test")
+@Path(TestRs.PATH)
 public class TestRs extends SuperRs {
+	
+	public static final String PATH = "/test";
 	
 	@Path("/hello")
 	@GET
