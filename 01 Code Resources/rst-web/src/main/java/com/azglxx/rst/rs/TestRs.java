@@ -11,10 +11,13 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
 
-@Component
-@Path("/root")
-public class RootRs extends SuperRs {
+import com.sun.jersey.spi.resource.Singleton;
 
+@Component
+@Singleton
+@Path("test")
+public class TestRs extends SuperRs {
+	
 	@Path("/hello")
 	@GET
 	@Produces(MediaType.TEXT_PLAIN)
