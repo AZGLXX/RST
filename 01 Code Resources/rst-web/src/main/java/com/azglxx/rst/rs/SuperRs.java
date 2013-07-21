@@ -12,6 +12,16 @@ import javax.ws.rs.core.Response.Status;
 
 import com.sun.jersey.spi.resource.Singleton;
 
+/**
+ * It's a abstract restful web resource class.<br/>
+ * this class defined many very useful common method for sub restful web
+ * resource class.
+ * 
+ * @author Arian Zhang
+ * @email arian_zhang@foxmail.com
+ * @date 2013-7-21
+ * @version 1.0
+ */
 @Singleton
 @Produces({ MediaType.APPLICATION_JSON })
 @Consumes({ MediaType.APPLICATION_JSON })

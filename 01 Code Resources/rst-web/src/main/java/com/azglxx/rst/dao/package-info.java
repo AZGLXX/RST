@@ -1,8 +1,5 @@
 /**
- * 
- */
-/**
- * 数据持久操作层
+ * data access operation tier
  * @author Arian Zhang
  * @email arian_zhang@foxmail.com
  * @date 2013-7-20

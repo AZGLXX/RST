@@ -2,7 +2,7 @@
  * 
  */
 /**
- * 数据库持久对象层
+ * database map to java object tier 
  * @author Arian Zhang
  * @email arian_zhang@foxmail.com
  * @date 2013-7-20

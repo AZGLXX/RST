@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.azglxx.common.constants.SessionKey;
 
 /**
- * request请求的当前上下文。
+ * request current context
  * 
  * @author Arian Zhang
  * @email arian_zhang@foxmail.com
@@ -20,7 +20,7 @@ public class CurrentContext {
 	private static ThreadLocal<HttpServletRequest> requestThread = new ThreadLocal<HttpServletRequest>();
 
 	/**
-	 * 获取当前用户
+	 * Get current user
 	 * 
 	 * @date 2013-7-20
 	 * @return
@@ -34,7 +34,7 @@ public class CurrentContext {
 	}
 
 	/**
-	 * 设置当前用户
+	 * Set current user
 	 * 
 	 * @date 2013-7-20
 	 * @param user

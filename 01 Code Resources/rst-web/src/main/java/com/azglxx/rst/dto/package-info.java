@@ -2,7 +2,7 @@
  * 
  */
 /**
- * web服务器传递对象层
+ * web data translation object
  * @author Arian Zhang
  * @email arian_zhang@foxmail.com
  * @date 2013-7-20

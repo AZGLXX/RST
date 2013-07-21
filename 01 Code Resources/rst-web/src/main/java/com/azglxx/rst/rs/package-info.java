@@ -1,8 +1,5 @@
 /**
- * 
- */
-/**
- * restful web service²ã
+ * restful web service tier
  * @author Arian Zhang
  * @email arian_zhang@foxmail.com
  * @date 2013-7-20

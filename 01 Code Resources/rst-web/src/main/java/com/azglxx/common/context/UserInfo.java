@@ -1,7 +1,7 @@
 package com.azglxx.common.context;
 
 /**
- * 登录用户信息
+ * user information
  * @author Arian Zhang
  * @email arian_zhang@foxmail.com
  * @date 2013-7-20
