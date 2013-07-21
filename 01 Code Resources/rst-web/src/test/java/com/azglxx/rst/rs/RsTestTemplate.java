@@ -22,6 +22,14 @@ import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 
+/**
+ * It's a very useful Restful service test unit abstract class.
+ * 
+ * @author Arian Zhang
+ * @email arian_zhang@foxmail.com
+ * @date 2013-7-21
+ * @version 1.0
+ */
 public abstract class RsTestTemplate {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(RsTestTemplate.class);
