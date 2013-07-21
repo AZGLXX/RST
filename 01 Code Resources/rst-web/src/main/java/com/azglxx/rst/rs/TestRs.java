@@ -11,10 +11,7 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Component;
 
-import com.sun.jersey.spi.resource.Singleton;
-
 @Component
-@Singleton
 @Path(TestRs.PATH)
 public class TestRs extends SuperRs {
 	

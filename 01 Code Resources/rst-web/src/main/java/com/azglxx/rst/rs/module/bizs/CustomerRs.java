@@ -4,6 +4,7 @@ import javax.ws.rs.Path;
 
 import org.springframework.stereotype.Service;
 
+import com.azglxx.rst.rs.SuperRs;
 import com.azglxx.rst.rs.constants.PathConst;
 
 /**
@@ -16,6 +17,6 @@ import com.azglxx.rst.rs.constants.PathConst;
  */
 @Path(CustomerRs.PATH)
 @Service
-public class CustomerRs {
+public class CustomerRs extends SuperRs{
 	public static final String PATH = PathConst.BIZS + "/customer";
 }
