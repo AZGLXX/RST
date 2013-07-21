@@ -1,8 +1,5 @@
 /**
- * 
- */
-/**
- * 业务处理层和事务控制层
+ * aop transactional
  * @author Arian Zhang
  * @email arian_zhang@foxmail.com
  * @date 2013-7-20
