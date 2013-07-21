@@ -1,7 +1,4 @@
 /**
- * 
- */
-/**
  * web data translation object
  * @author Arian Zhang
  * @email arian_zhang@foxmail.com
