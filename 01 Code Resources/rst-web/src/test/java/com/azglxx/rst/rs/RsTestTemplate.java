@@ -58,13 +58,13 @@ public abstract class RsTestTemplate {
 		ClientResponse response = resource.path(PathConst.RIGHTS_MGT + "/user/login")
 				.accept(MediaType.APPLICATION_JSON).type(MediaType.APPLICATION_JSON)
 				.post(ClientResponse.class, JsonUtils.toJson(userInfo));
-		assertOk(response);
+		assertOk(response, LOGGER);
 		return response.getCookies();
 	}
 
 	protected abstract WebResource pathResource();
 
-	protected static void assertOk(ClientResponse cr) {
+	protected static void assertOk(ClientResponse cr, final Logger LOGGER) {
 		LOGGER.info("reponse status is " + cr.getStatus());
 		assertEquals("reponse status is not OK", 200, cr.getStatus());
 	}

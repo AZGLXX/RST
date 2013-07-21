@@ -21,7 +21,7 @@ public class TestRsTest extends RsTestTemplate {
 	public void hello() {
 		ClientResponse clientResponse = pathResource().path("/hello").cookie(cookie).accept(MediaType.TEXT_PLAIN)
 				.get(ClientResponse.class);
-		assertOk(clientResponse);
+		assertOk(clientResponse, LOGGER);
 		LOGGER.info(clientResponse.getEntity(String.class));
 	}
 
@@ -29,7 +29,7 @@ public class TestRsTest extends RsTestTemplate {
 	public void hello2() {
 		ClientResponse clientResponse = pathResource().path("/hello2").cookie(cookie)
 				.accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
-		assertOk(clientResponse);
+		assertOk(clientResponse, LOGGER);
 		String res = clientResponse.getEntity(String.class);
 		HashMap<String, String> resMap = JsonUtils.fromJson(res, new TypeToken<HashMap<String, String>>() {
 		}.getType());
