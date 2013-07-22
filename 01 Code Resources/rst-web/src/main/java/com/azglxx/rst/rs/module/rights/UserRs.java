@@ -8,6 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.azglxx.common.context.CurrentContext;
@@ -25,7 +26,7 @@ import com.azglxx.rst.service.IRightsService;
  * @version 1.0
  */
 @Path(UserRs.PATH)
-@Service
+@Component
 public class UserRs extends SuperRs {
 	public static final String PATH = PathConst.RIGHTS_MGT + "/user";
 
