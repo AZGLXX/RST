@@ -20,6 +20,43 @@ public class CurrentContext {
     private static ThreadLocal<HttpServletRequest> requestThread = new ThreadLocal<HttpServletRequest>();
 
     /**
+     * put key-value to context
+     * 
+     * @param key
+     * @param value
+     * @param scope
+     */
+    public static void put(String key, Object value, ContextScope scope) {
+        switch (scope) {
+            case GLOBAL_SESSION:
+                requestThread.get().getServletContext().setAttribute(key, value);
+            case SESSION:
+                requestThread.get().getSession().setAttribute(key, value);
+            case REQUEST:
+                requestThread.get().setAttribute(key, value);
+                break;
+        }
+    }
+
+    /**
+     * get value by key from context.
+     * 
+     * @param key
+     * @param classOfT
+     * @return
+     */
+    public static <T> T get(String key, Class<T> classOfT) {
+        T t = classOfT.cast(requestThread.get().getAttribute(key));
+        if (t == null) {
+            t = classOfT.cast(requestThread.get().getSession().getAttribute(key));
+            if (t == null) {
+                t = classOfT.cast(requestThread.get().getServletContext().getAttribute(key));
+            }
+        }
+        return t;
+    }
+
+    /**
      * Get current user
      * 
      * @date 2013-7-20
