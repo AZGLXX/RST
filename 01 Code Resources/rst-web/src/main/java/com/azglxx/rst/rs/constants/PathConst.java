@@ -7,5 +7,5 @@ public interface PathConst {
 	
 	String COMMON = "/common";
 	
-	String FILE_UPLOAD_PLACE = "/fileUploaded";
+	String FILE_UPLOAD_PLACE = "/fileUploaded/";
 }
