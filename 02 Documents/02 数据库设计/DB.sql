@@ -253,6 +253,7 @@ create table ajx_aboutus (
 	bookingtime_start timestamp not null default 0,
 	bookingtime_end timestamp not null default 0,
 	order_status varchar(10),##订单状态(已受理or未受理or已取消or用餐中or已结束)
+	status varchar(10) not null,
 	createby int not null,
 	createtime timestamp not null default 0,
 	updateby int,
