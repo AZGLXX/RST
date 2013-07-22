@@ -13,6 +13,8 @@ import org.slf4j.LoggerFactory;
  */
 public class BizsExcpetion extends RuntimeException {
 
+    private static final long serialVersionUID = 1L;
+    @SuppressWarnings("unused")
     private final static Logger logger = LoggerFactory.getLogger(BizsExcpetion.class);
 
     public BizsExcpetion(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
