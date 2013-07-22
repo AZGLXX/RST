@@ -23,7 +23,7 @@
 		<jdbc.driver.version>5.1.21</jdbc.driver.version>
 
 	</properties>
-	
+
 	<repositories>
 		<repository>
 			<id>org.jboss.repository</id>
